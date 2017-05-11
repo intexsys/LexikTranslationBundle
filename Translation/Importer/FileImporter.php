@@ -2,6 +2,7 @@
 
 namespace Lexik\Bundle\TranslationBundle\Translation\Importer;
 
+use Lexik\Bundle\TranslationBundle\Entity\Translation;
 use Lexik\Bundle\TranslationBundle\Storage\StorageInterface;
 use Lexik\Bundle\TranslationBundle\Document\TransUnit as TransUnitDocument;
 use Lexik\Bundle\TranslationBundle\Manager\FileManagerInterface;
@@ -86,6 +87,9 @@ class FileImporter
                     $imported++;
                 } else if($forceUpdate) {
                     $translation = $this->transUnitManager->updateTranslation($transUnit, $locale, $content);
+                    if ($translation instanceof Translation) {
+                        $translation->setIsModified(false);
+                    }
                     $imported++;
                 } else if($merge) {
                     $translation = $this->transUnitManager->updateTranslation($transUnit, $locale, $content, false, true);
