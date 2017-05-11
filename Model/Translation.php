@@ -43,7 +43,7 @@ abstract class Translation
     /**
      * @var boolean
      */
-    protected $isModified;
+    protected $modifiedManually = false;
 
     /**
      * Set locale
@@ -130,17 +130,16 @@ abstract class Translation
     /**
      * @return bool
      */
-    public function isModified()
+    public function isModifiedManually()
     {
-        return $this->isModified;
+        return $this->modifiedManually;
     }
 
     /**
-     * @param bool $isModified
+     * @param bool $modifiedManually
      */
-    public function setIsModified($isModified)
+    public function setModifiedManually($modifiedManually)
     {
-        $this->isModified = $isModified;
+        $this->modifiedManually = $modifiedManually;
     }
-
 }

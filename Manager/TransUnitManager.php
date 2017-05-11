@@ -129,7 +129,7 @@ class TransUnitManager implements TransUnitManagerInterface
             /* @var Translation $translation */
             $translation = $transUnit->getTranslations()->get($i-1);
             if ($merge) {
-                if ($translation->isModified() || $translation->getContent() == $content) {
+                if ($translation->isModifiedManually() || $translation->getContent() == $content) {
                     return null;
                 }
 
@@ -183,7 +183,7 @@ class TransUnitManager implements TransUnitManagerInterface
                 }
 
                 if ($translation instanceof Translation && $contentUpdated) {
-                    $translation->setIsModified(true);
+                    $translation->setModifiedManually(true);
                 }
             }
         }

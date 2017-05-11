@@ -88,7 +88,7 @@ class FileImporter
                 } else if($forceUpdate) {
                     $translation = $this->transUnitManager->updateTranslation($transUnit, $locale, $content);
                     if ($translation instanceof Translation) {
-                        $translation->setIsModified(false);
+                        $translation->setModifiedManually(false);
                     }
                     $imported++;
                 } else if($merge) {

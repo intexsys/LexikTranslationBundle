@@ -20,7 +20,7 @@
             <generator strategy="IDENTITY"/>
         </id>
 
-        <field name="isModified" column="is_modified" type="boolean" />
+        <field name="modifiedManually" column="modified_manually" type="boolean" />
 
         <many-to-one field="file" target-entity="Lexik\Bundle\TranslationBundle\Entity\File" inversed-by="translations">
             <join-column name="file_id" referenced-column-name="id" />
