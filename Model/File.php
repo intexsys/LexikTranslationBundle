@@ -57,6 +57,10 @@ abstract class File
      */
     protected $translations;
 
+    protected $createdAt;
+
+    protected $updatedAt;
+
     /**
      * Construct.
      */
